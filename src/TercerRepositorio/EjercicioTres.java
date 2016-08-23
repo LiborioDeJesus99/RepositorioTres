@@ -60,17 +60,17 @@ public class EjercicioTres extends javax.swing.JFrame {
         jPanel1.add(txtSTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 100, 70, -1));
 
         cmdCalcular.setText("Calcular");
-        cmdCalcular.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                cmdCalcularKeyTyped(evt);
+        cmdCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdCalcularActionPerformed(evt);
             }
         });
         jPanel1.add(cmdCalcular, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, -1, -1));
 
         cmdBorrar.setText("Borrar");
-        cmdBorrar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                cmdBorrarKeyTyped(evt);
+        cmdBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmdBorrarActionPerformed(evt);
             }
         });
         jPanel1.add(cmdBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, -1));
@@ -99,11 +99,11 @@ public class EjercicioTres extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtMAhorradoKeyTyped
 
-    private void cmdCalcularKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmdCalcularKeyTyped
+    private void cmdCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdCalcularActionPerformed
 
         double SFinal, SInicial, Oper;
 
-
+        txtSTotal.setText("");
         if (txtMAhorrado.getText().trim().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Por Favor Digite Su Monto Ahorrado", "Error", JOptionPane.ERROR_MESSAGE);
             txtMAhorrado.requestFocusInWindow();
@@ -113,22 +113,22 @@ public class EjercicioTres extends javax.swing.JFrame {
             if (SInicial == 0) {
                 JOptionPane.showMessageDialog(this, "Su Saldo No Puede Ser 0", "Error", JOptionPane.ERROR_MESSAGE);
                 txtMAhorrado.requestFocusInWindow();
-                txtMAhorrado.selectAll();;
+                txtMAhorrado.selectAll();
             }
             SFinal = SInicial * 0.15;
             Oper = SInicial - SFinal;
             txtSTotal.setText(String.valueOf(Oper));
 
         }
-                txtSTotal.setText("");
-    }//GEN-LAST:event_cmdCalcularKeyTyped
 
-    private void cmdBorrarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cmdBorrarKeyTyped
+    }//GEN-LAST:event_cmdCalcularActionPerformed
+
+    private void cmdBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdBorrarActionPerformed
 
         txtMAhorrado.setText("");
         txtSTotal.setText("");
         txtMAhorrado.requestFocusInWindow();
-    }//GEN-LAST:event_cmdBorrarKeyTyped
+    }//GEN-LAST:event_cmdBorrarActionPerformed
 
     /**
      * @param args the command line arguments
